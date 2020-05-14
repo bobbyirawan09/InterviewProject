@@ -1,7 +1,6 @@
 package bobby.irawan.projectbukalapak
 
 import android.app.Application
-import bobby.irawan.projectbukalapak.di.repositoryModule
 import bobby.irawan.projectbukalapak.di.serviceModule
 import bobby.irawan.projectbukalapak.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -20,7 +19,6 @@ class ApplicationController: Application() {
             androidLogger()
             androidContext(this@ApplicationController)
             modules(
-                repositoryModule,
                 serviceModule,
                 viewModelModule
             )

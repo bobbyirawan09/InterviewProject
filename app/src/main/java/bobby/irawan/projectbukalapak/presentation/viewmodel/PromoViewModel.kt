@@ -3,10 +3,10 @@ package bobby.irawan.projectbukalapak.presentation.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import bobby.irawan.projectbukalapak.data.HomeAPIService
 import bobby.irawan.projectbukalapak.presentation.model.promobanner.PromoBannersModelView
-import bobby.irawan.projectbukalapak.repository.RepositoryContract
 
-class PromoViewModel(private val repository: RepositoryContract) : ViewModel() {
+class PromoViewModel(private val apiService: HomeAPIService) : ViewModel() {
 
     private val _promosLiveData = MutableLiveData<PromoBannersModelView>()
     val newsLiveData: LiveData<PromoBannersModelView>

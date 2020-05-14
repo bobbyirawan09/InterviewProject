@@ -4,6 +4,7 @@ import bobby.irawan.projectbukalapak.presentation.model.categories.CategoriesMod
 import bobby.irawan.projectbukalapak.presentation.model.flashbanner.FlashBannerModelView
 import bobby.irawan.projectbukalapak.presentation.model.populars.PopularsModelView
 import bobby.irawan.projectbukalapak.presentation.model.promobanner.PromoBannersModelView
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Url
 
@@ -13,7 +14,7 @@ import retrofit2.http.Url
 interface HomeAPI {
 
     @GET
-    suspend fun getFlashBanner(@Url url: String): FlashBannerModelView
+    fun getFlashBanner(@Url url: String): Call<FlashBannerModelView>
 
     @GET("categories.json")
     suspend fun getCategories(): CategoriesModelView

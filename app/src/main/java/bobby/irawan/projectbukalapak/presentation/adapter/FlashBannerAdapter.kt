@@ -29,11 +29,11 @@ class FlashBannerAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return data.bannerModelViews.size
+        return data.banners.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ViewHolder).setImage(data.bannerModelViews[position])
+        (holder as ViewHolder).setImage(data.banners[position])
     }
 
     internal class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
