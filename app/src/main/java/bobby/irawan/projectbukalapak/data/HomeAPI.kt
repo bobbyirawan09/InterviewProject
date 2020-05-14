@@ -1,5 +1,9 @@
 package bobby.irawan.projectbukalapak.data
 
+import bobby.irawan.projectbukalapak.presentation.model.categories.CategoriesModelView
+import bobby.irawan.projectbukalapak.presentation.model.flashbanner.FlashBannerModelView
+import bobby.irawan.projectbukalapak.presentation.model.populars.PopularsModelView
+import bobby.irawan.projectbukalapak.presentation.model.promobanner.PromoBannersModelView
 import retrofit2.http.GET
 
 /**
@@ -8,15 +12,15 @@ import retrofit2.http.GET
 interface HomeAPI {
 
     @GET("flash_banners.json")
-    suspend fun getFlashBanners()
+    suspend fun getFlashBanner(): FlashBannerModelView
 
     @GET("categories.json")
-    suspend fun getCategories()
+    suspend fun getCategories(): CategoriesModelView
 
     @GET("products/promo_banners.json?version=2")
-    suspend fun getPromoBanners()
+    suspend fun getPromoBanners(): PromoBannersModelView
 
     @GET("populars_v2.json")
-    suspend fun getPopulars()
+    suspend fun getPopulars(): PopularsModelView
 
 }

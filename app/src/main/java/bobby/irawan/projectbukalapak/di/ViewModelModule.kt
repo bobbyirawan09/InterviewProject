@@ -3,6 +3,7 @@ package bobby.irawan.projectbukalapak.di
 import bobby.irawan.projectbukalapak.presentation.viewmodel.PopularViewModel
 import bobby.irawan.projectbukalapak.presentation.viewmodel.PromoViewModel
 import bobby.irawan.projectbukalapak.presentation.viewmodel.CategoryViewModel
+import bobby.irawan.projectbukalapak.presentation.viewmodel.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -22,6 +23,10 @@ val viewModelModule = module {
 
     viewModel {
         PromoViewModel(get())
+    }
+
+    viewModel {
+        HomeViewModel(get())
     }
 
 }

@@ -1,5 +1,9 @@
 package bobby.irawan.projectbukalapak.data
 
+import bobby.irawan.projectbukalapak.presentation.model.categories.CategoriesModelView
+import bobby.irawan.projectbukalapak.presentation.model.flashbanner.FlashBannerModelView
+import bobby.irawan.projectbukalapak.presentation.model.populars.PopularsModelView
+import bobby.irawan.projectbukalapak.presentation.model.promobanner.PromoBannersModelView
 import bobby.irawan.projectbukalapak.util.ApiUtils
 
 /**
@@ -9,19 +13,19 @@ class HomeAPIServiceImpl(): HomeAPIService {
 
     val homeApi = ApiUtils.getRetrofitInstance().create(HomeAPI::class.java)
 
-    override suspend fun getFlashBanner() {
-        return homeApi.getFlashBanners()
+    override suspend fun getFlashBanner(): FlashBannerModelView {
+        return homeApi.getFlashBanner()
     }
 
-    override suspend fun getCategories() {
+    override suspend fun getCategories(): CategoriesModelView {
         return homeApi.getCategories()
     }
 
-    override suspend fun getPromoBanners() {
+    override suspend fun getPromoBanners(): PromoBannersModelView {
         return homeApi.getPromoBanners()
     }
 
-    override suspend fun getPopulars() {
+    override suspend fun getPopulars(): PopularsModelView {
         return homeApi.getPopulars()
     }
 }
