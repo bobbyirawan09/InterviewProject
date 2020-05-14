@@ -5,14 +5,14 @@ import bobby.irawan.projectbukalapak.presentation.model.flashbanner.FlashBannerM
 import bobby.irawan.projectbukalapak.presentation.model.populars.PopularsModelView
 import bobby.irawan.projectbukalapak.presentation.model.promobanner.PromoBannersModelView
 import retrofit2.http.GET
+import retrofit2.http.Url
 
 /**
  * Created by bobbyirawan09 on 14/05/20.
  */
 interface HomeAPI {
 
-    @GET("flash_banners.json")
-    suspend fun getFlashBanner(): FlashBannerModelView
+    suspend fun getFlashBanner(@Url url: String): FlashBannerModelView
 
     @GET("categories.json")
     suspend fun getCategories(): CategoriesModelView

@@ -19,7 +19,7 @@ class HomeViewModel(private val repository: RepositoryContract) : ViewModel() {
     private lateinit var flashBanner: FlashBannerModelView
 
     private val _flashBannerLiveData = MutableLiveData<FlashBannerModelView>()
-    val newsLiveData: LiveData<FlashBannerModelView>
+    val flashBannerLiveData: LiveData<FlashBannerModelView>
         get() = _flashBannerLiveData
 
     fun getFlashBannerData() {
