@@ -1,0 +1,21 @@
+package bobby.irawan.projectbukalapak.presentation.adapter
+
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+
+/**
+ * Created by bobbyirawan09 on 14/05/20.
+ */
+class CategoryAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        TODO("Not yet implemented")
+    }
+
+    override fun getItemCount(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        TODO("Not yet implemented")
+    }
+}

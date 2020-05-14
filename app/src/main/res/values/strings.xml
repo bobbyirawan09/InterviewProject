@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProjectBukalapak</string>
+    <string name="category_title">Kategori Barang</string>
+    <string name="look_all_title">Lihat Semua</string>
+</resources>
