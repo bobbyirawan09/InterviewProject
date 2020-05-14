@@ -12,6 +12,7 @@ import retrofit2.http.Url
  */
 interface HomeAPI {
 
+    @GET
     suspend fun getFlashBanner(@Url url: String): FlashBannerModelView
 
     @GET("categories.json")
