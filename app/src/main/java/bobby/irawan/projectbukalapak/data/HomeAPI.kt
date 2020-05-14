@@ -16,13 +16,13 @@ interface HomeAPI {
     @GET
     fun getFlashBanner(@Url url: String): Call<FlashBannerModelView>
 
-    @GET("categories.json")
-    suspend fun getCategories(): CategoriesModelView
+    @GET
+    fun getCategories(@Url url: String): Call<CategoriesModelView>
 
-    @GET("products/promo_banners.json?version=2")
-    suspend fun getPromoBanners(): PromoBannersModelView
+    @GET
+    fun getPromoBanners(@Url url: String): Call<PromoBannersModelView>
 
-    @GET("populars_v2.json")
-    suspend fun getPopulars(): PopularsModelView
+    @GET
+    fun getPopulars(@Url url: String): Call<PopularsModelView>
 
 }

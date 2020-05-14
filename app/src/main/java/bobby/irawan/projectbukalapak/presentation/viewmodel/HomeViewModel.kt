@@ -22,7 +22,11 @@ class HomeViewModel(private val apiService: HomeAPIService) : ViewModel() {
         get() = _flashBannerLiveData
 
     fun getFlashBannerData() {
-        flashBanner = apiService.getFlashBanner()
-        _flashBannerLiveData.value = flashBanner
+        viewModelScope.launch(Dispatchers.IO) {
+            flashBanner = apiService.getFlashBanner()
+            withContext(Dispatchers.Main) {
+                _flashBannerLiveData.value = flashBanner
+            }
+        }
     }
 }

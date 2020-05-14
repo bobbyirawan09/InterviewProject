@@ -12,7 +12,7 @@ import bobby.irawan.projectbukalapak.presentation.viewmodel.CategoryViewModel
  */
 interface HomeAPIService {
 
-    fun getFlashBanner(): FlashBannerModelView
+    suspend fun getFlashBanner(): FlashBannerModelView
 
     suspend fun getCategories(): CategoriesModelView
 

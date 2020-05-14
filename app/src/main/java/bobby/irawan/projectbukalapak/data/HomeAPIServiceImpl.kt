@@ -6,8 +6,6 @@ import bobby.irawan.projectbukalapak.presentation.model.populars.PopularsModelVi
 import bobby.irawan.projectbukalapak.presentation.model.promobanner.PromoBannersModelView
 import bobby.irawan.projectbukalapak.util.ApiUtils
 import bobby.irawan.projectbukalapak.util.Constant.BASE_API
-import kotlinx.coroutines.*
-import java.lang.Exception
 
 /**
  * Created by bobbyirawan09 on 14/05/20.
@@ -16,27 +14,44 @@ class HomeAPIServiceImpl() : HomeAPIService {
 
     val homeApi = ApiUtils.getRetrofitInstance().create(HomeAPI::class.java)
 
-    override fun getFlashBanner(): FlashBannerModelView {
-        return runBlocking (Dispatchers.IO) {
-            var result = FlashBannerModelView(listOf(), "", "")
-            try {
-                result = homeApi.getFlashBanner(BASE_API + "flash_banners.json").execute().body()!!
-            } catch (e: Exception) {
-                //Do nothing
-            }
-            result
+    override suspend fun getFlashBanner(): FlashBannerModelView {
+        var result = FlashBannerModelView(listOf(), "", "")
+        try {
+            result = homeApi.getFlashBanner(BASE_API + "flash_banners.json").execute().body()!!
+        } catch (e: Exception) {
+            //Do nothing
         }
+        return result
     }
 
     override suspend fun getCategories(): CategoriesModelView {
-        return homeApi.getCategories()
+        var result = CategoriesModelView(listOf(), "", "")
+        try {
+            result = homeApi.getCategories(BASE_API + "categories.json").execute().body()!!
+        } catch (e: Exception) {
+            //Do nothing
+        }
+        return result
     }
 
     override suspend fun getPromoBanners(): PromoBannersModelView {
-        return homeApi.getPromoBanners()
+        var result = PromoBannersModelView("", listOf(), "")
+        try {
+            result = homeApi.getPromoBanners(BASE_API + "products/promo_banners.json?version=2")
+                .execute().body()!!
+        } catch (e: Exception) {
+            //Do nothing
+        }
+        return result
     }
 
     override suspend fun getPopulars(): PopularsModelView {
-        return homeApi.getPopulars()
+        var result = PopularsModelView("", listOf(), "")
+        try {
+            result = homeApi.getPopulars(BASE_API + "populars_v2.json").execute().body()!!
+        } catch (e: Exception) {
+            //Do nothing
+        }
+        return result
     }
 }
