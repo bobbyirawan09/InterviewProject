@@ -30,6 +30,8 @@ class HomeActivity() : AppCompatActivity() {
                 recycler_view_flash_banner.setHasFixedSize(true)
                 recycler_view_flash_banner.layoutManager = LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
                 recycler_view_flash_banner.adapter = adapter
+                indicator.attachTo(recycler_view_flash_banner,true)
+                indicator.numberOfIndicators = result.banners?.size ?: 0
 
                 val adapter2 = CategoriesAdapter()
                 adapter2.setData(result2.categories ?: listOf())
