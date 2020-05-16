@@ -1,5 +1,1 @@
-data class FlashBannerModelView(
-    val banners: List<Banner>,
-    val message: Any,
-    val status: String
-)
+import bobby.irawan.projectbukalapak.model.BannerModelView
