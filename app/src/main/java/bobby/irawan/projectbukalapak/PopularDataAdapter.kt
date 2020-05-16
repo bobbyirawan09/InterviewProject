@@ -1,5 +1,7 @@
 package bobby.irawan.projectbukalapak
 
+import android.graphics.Color
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,7 +42,15 @@ class PopularDataAdapter : RecyclerView.Adapter<PopularDataAdapter.MyViewHolder>
             val image = banner.images?.get(0) as String
             val totalFeedback =banner.rating?.user_count ?: ""
             itemView.image_view_phone.load(image)
-            itemView.text_view_price.text = banner.price
+            if (banner.deal_info?.discount_price ?: 0 > 0) {
+                itemView.text_view_ori_price.visibility = View.VISIBLE
+                itemView.text_view_ori_price.text = "Rp"+(banner.deal_info?.original_price ?: 0).toString()
+                itemView.text_view_ori_price.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+                itemView.text_view_price.text = "Rp"+banner.deal_info?.discount_price.toString()
+                itemView.text_view_price.setTextColor(Color.MAGENTA)
+            } else {
+                itemView.text_view_price.text = "Rp"+banner.deal_info?.original_price.toString()
+            }
             itemView.text_view_desc.text = banner.name
             itemView.text_view_total_feedback.text = "(" + totalFeedback + ")"
             itemView.text_view_star.text = banner.rating?.average_rate
